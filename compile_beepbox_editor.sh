@@ -27,4 +27,4 @@ npx terser \
 sed \
 	-e '/INSERT_BEEPBOX_SOURCE_HERE/{r website/beepbox_editor.min.js' -e 'd' -e '}' \
 	website/beepbox_offline_template.html \
-	> website/beepbox_offline.html
+	> website/openbox-app/beepbox_offline.html

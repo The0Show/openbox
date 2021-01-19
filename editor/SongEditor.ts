@@ -176,9 +176,9 @@ import {ChangeTempo, ChangeReverb, ChangeVolume, ChangePan, ChangePatternSelecti
 		private readonly _pluginsMenu: HTMLSelectElement = select({style: "width: 100%;"},
 			option({selected: true, disabled: true, hidden: false}, "Plugins"), // todo: "hidden" should be true but looks wrong on mac chrome, adds checkmark next to first visible option. :(
 			option({value: "autoPlay"}, "plugins go here"),
-			option({selected: false, disabled: true, hidden: false}, "Plugin Management"), // todo: "hidden" should be true but looks wrong on mac chrome, adds checkmark next to first visible option. :(
-			option({disabled: true, value: "addPlugin"}, "Add Custom Plugin"),
-			option({disabled: true, value: "removePlugin"}, "Delete Custom Plugins"),
+			//option({selected: false, disabled: true, hidden: false}, "Plugin Management"), // todo: "hidden" should be true but looks wrong on mac chrome, adds checkmark next to first visible option. :(
+			//option({disabled: true, value: "addPlugin"}, "Add Custom Plugin"),
+			//option({disabled: true, value: "removePlugin"}, "Delete Custom Plugins"),
 		);
 		private readonly _scaleSelect: HTMLSelectElement = buildOptions(select(), Config.scales.map(scale=>scale.name));
 		private readonly _keySelect: HTMLSelectElement = buildOptions(select(), Config.keys.map(key=>key.name).reverse());

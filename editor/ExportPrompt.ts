@@ -41,7 +41,7 @@ import {MidiChunkType, MidiFileFormat, MidiControlEventMessage, MidiEventType, M
 	}
 	
 	export class ExportPrompt implements Prompt {
-		private readonly _fileName: HTMLInputElement = input({type: "text", style: "width: 10em;", value: "BeepBox-Song", maxlength: 250, "autofocus": "autofocus"});
+		private readonly _fileName: HTMLInputElement = input({type: "text", style: "width: 10em;", value: "OpenBox-Song", maxlength: 250, "autofocus": "autofocus"});
 		private readonly _enableIntro: HTMLInputElement = input({type: "checkbox"});
 		private readonly _loopDropDown: HTMLInputElement = input({style:"width: 2em;", type: "number", min: "1", max: "4", step: "1"});
 		private readonly _enableOutro: HTMLInputElement = input({type: "checkbox"});

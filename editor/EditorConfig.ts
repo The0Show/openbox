@@ -26,7 +26,7 @@ import {DictionaryArray, BeepBoxOption, InstrumentType, toNameMap} from "../synt
 		public static readonly vernumber: string = "1.0";
 		public static readonly vertitle: string = "First Steps";
 		
-		public static readonly versionDisplayName: string = "OpenBox " + EditorConfig.vernumber + ' | \"' + EditorConfig.vertitle + "\"";
+		public static readonly versionDisplayName: string = `OpenBox ${EditorConfig.vernumber} | "${EditorConfig.vertitle}"`;
 		public static readonly presetCategories: DictionaryArray<PresetCategory> = toNameMap([
 			{name: "Custom Instruments", presets: <DictionaryArray<Preset>> toNameMap([
 				{name: "chip wave",        customType: InstrumentType.chip},
