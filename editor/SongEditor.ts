@@ -170,8 +170,15 @@ import {ChangeTempo, ChangeReverb, ChangeVolume, ChangePan, ChangePatternSelecti
 			option({value: "alwaysShowSettings"}, "Customize All Instruments"),
 			option({value: "enableChannelMuting"}, "Enable Channel Muting"),
 			option({value: "displayBrowserUrl"}, "Display Song Data in URL"),
-			option({value: "fullScreen"}, "Full-Screen Layout"),
+			option({value: "fullScreen"}, "Show Previous and Next Patterns"),
 			option({value: "colorTheme"}, "Light Theme"),
+		);
+		private readonly _pluginsMenu: HTMLSelectElement = select({style: "width: 100%;"},
+			option({selected: true, disabled: true, hidden: false}, "Plugins"), // todo: "hidden" should be true but looks wrong on mac chrome, adds checkmark next to first visible option. :(
+			option({value: "autoPlay"}, "plugins go here"),
+			option({selected: false, disabled: true, hidden: false}, "Plugin Management"), // todo: "hidden" should be true but looks wrong on mac chrome, adds checkmark next to first visible option. :(
+			option({disabled: true, value: "addPlugin"}, "Add Custom Plugin"),
+			option({disabled: true, value: "removePlugin"}, "Delete Custom Plugins"),
 		);
 		private readonly _scaleSelect: HTMLSelectElement = buildOptions(select(), Config.scales.map(scale=>scale.name));
 		private readonly _keySelect: HTMLSelectElement = buildOptions(select(), Config.keys.map(key=>key.name).reverse());
@@ -319,6 +326,9 @@ import {ChangeTempo, ChangeReverb, ChangeVolume, ChangePan, ChangePatternSelecti
 				),
 				div({class: "selectContainer menu preferences"},
 					this._optionsMenu,
+				),
+				div({class: "selectContainer menu puzzlepiece"},
+					this._pluginsMenu,
 				),
 			),
 			div({class: "song-settings-area"},
@@ -614,7 +624,7 @@ import {ChangeTempo, ChangeReverb, ChangeVolume, ChangePan, ChangePatternSelecti
 				(this._doc.alwaysShowSettings ? "✓ " : "") + "Customize All Instruments",
 				(this._doc.enableChannelMuting ? "✓ " : "") + "Enable Channel Muting",
 				(this._doc.displayBrowserUrl ? "✓ " : "") + "Display Song Data in URL",
-				(this._doc.fullScreen ? "✓ " : "") + "Full-Screen Layout",
+				(this._doc.fullScreen ? "✓ " : "") + "Show Previous and Next Patterns",
 				(this._doc.colorTheme == "light classic" ? "✓ " : "") + "Light Theme",
 			]
 			for (let i: number = 0; i < optionCommands.length; i++) {

@@ -864,57 +864,43 @@ document.head.appendChild(HTML.style({type: "text/css"}, `
 }
 
 /* narrow screen */
-@media (max-width: 700px) {
-	.beepboxEditor {
-		grid-template-columns: minmax(0, 1fr);
-		grid-template-rows: min-content 6px min-content min-content;
-		grid-template-areas: "pattern-area" "." "track-area" "settings-area";
-		grid-row-gap: 0;
+@media (min-width: 701px) {
+	#beepboxEditorContainer {
+		display: table;
 	}
-	.beepboxEditor .settings-area {
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-		grid-template-rows: min-content min-content 1fr min-content;
-		grid-template-areas:
-			"play-pause-area play-pause-area"
-			"menu-area instrument-settings-area"
-			"song-settings-area instrument-settings-area"
-			"version-area version-area";
-		grid-column-gap: 8px;
-		margin: 0 4px;
+	.beepboxEditor {
+		flex-direction: row;
 	}
 	.beepboxEditor:focus-within {
-		outline: none;
+		outline: 3px solid ${ColorConfig.uiWidgetBackground};
 	}
-	.beepboxEditor .pattern-area {
-		max-height: 75vh;
-	}
-	.beepboxEditor .trackContainer {
-		overflow-x: auto;
-	}
-	.beepboxEditor .barScrollBar {
-		display: none;
+	.beepboxEditor .trackAndMuteContainer {
+		width: 512px;
 	}
 	.beepboxEditor .play-pause-area {
 		display: flex;
-		flex-direction: row;
-		margin: 2px 0;
+		flex-direction: column;
 	}
 	.beepboxEditor .playback-bar-controls {
 		display: flex;
 		flex-direction: row;
-		flex-grow: 1;
+		margin: 2px 0;
 	}
 	.beepboxEditor .playback-volume-controls {
 		display: flex;
 		flex-direction: row;
+		margin: 2px 0;
 		align-items: center;
-		flex-grow: 1;
-		margin: 0 2px;
 	}
-	.beepboxEditor .pauseButton, .beepboxEditor .playButton,
+	.beepboxEditor .pauseButton, .beepboxEditor .playButton {
+		flex-grow: 1;
+	}
 	.beepboxEditor .nextBarButton, .beepboxEditor .prevBarButton {
 		flex-grow: 1;
-		margin: 0 2px;
+		margin-left: 10px;
+	}
+	.beepboxEditor .settings-area {
+		width: 14em;
 	}
 }
 

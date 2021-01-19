@@ -46,10 +46,11 @@ import {MidiChunkType, MidiFileFormat, MidiControlEventMessage, MidiEventType, M
 		private readonly _loopDropDown: HTMLInputElement = input({style:"width: 2em;", type: "number", min: "1", max: "4", step: "1"});
 		private readonly _enableOutro: HTMLInputElement = input({type: "checkbox"});
 		private readonly _formatSelect: HTMLSelectElement = select({style: "width: 100%;"},
-			option({value: "wav"}, "Export to .wav file."),
-			option({value: "mp3"}, "Export to .mp3 file."),
-			option({value: "midi"}, "Export to .mid file."),
-			option({value: "json"}, "Export to .json file."),
+			option({value: "wav"}, "Export to .wav"),
+			option({value: "mp3"}, "Export to .mp3"),
+			option({value: "midi"}, "Export to .mid"),
+			option({value: "json"}, "Export to .json"),
+			option({value: "bbonline"}, "Export to beepbox.online (Coming Soon)"),
 		);
 		private readonly _cancelButton: HTMLButtonElement = button({class: "cancelButton"});
 		private readonly _exportButton: HTMLButtonElement = button({class: "exportButton", style: "width:45%;"}, "Export");
@@ -190,6 +191,9 @@ import {MidiChunkType, MidiFileFormat, MidiControlEventMessage, MidiEventType, M
 					this._exportToMidi();
 					break;
 				case "json":
+					this._exportToJson();
+					break;
+				case "bbonline":
 					this._exportToJson();
 					break;
 				default:
@@ -402,7 +406,7 @@ import {MidiChunkType, MidiFileFormat, MidiControlEventMessage, MidiEventType, M
 					writeEventTime(0);
 					writer.writeUint8(MidiEventType.meta);
 					writer.writeMidi7Bits(MidiMetaEventMessage.text);
-					writer.writeMidiAscii("Composed with https://www.beepbox.co");
+					writer.writeMidiAscii("Composed with https://the0show.github.io/openbox");
 					
 					writeEventTime(0);
 					writer.writeUint8(MidiEventType.meta);
