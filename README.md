@@ -26,7 +26,7 @@ npm install
 npm run build
 ```
 
-**IMPORTANT:** In order to build OpenBox, you **must** use [Git CMD](https://git-scm.com/)!
+**IMPORTANT:** In order to build OpenBox, you **must** use [Git Bash](https://git-scm.com/)!
 
 ## Code
 
